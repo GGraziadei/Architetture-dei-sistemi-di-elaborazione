@@ -1,0 +1,182 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             |svc_custom_handlers.text|, COD
+E, READONLY
+    2 00000000         
+    3 00000000         SVC_Handler
+                               PROC
+    4 00000000                 EXPORT           SVC_Handler
+    5 00000000         
+    6 00000000 E92D 5FFF       PUSH             {R0-R12 , LR}
+    7 00000004         
+    8 00000004 F3EF 8509       MRS              R5, PSP
+    9 00000008 69AC            LDR              R4, [ R5, #24]
+   10 0000000A F1A4 0704       SUB              R7, R4, #4  ; original PC 
+   11 0000000E 683C            LDR              R4, [R7]
+   12 00000010 F024 447F       BIC              R4, #0xFF000000
+   13 00000014 EA4F 4414       LSR              R4, #16     ;R4 contains the co
+                                                            mment SVC code
+   14 00000018         
+   15 00000018         svc0xca
+   16 00000018 2CCA            CMP              R4, #0xCA   ; LR = 0xFFFFFFFD
+   17 0000001A D124            BNE              svc0xfe
+   18 0000001C         
+   19 0000001C E8BD 5FFF       POP              {R0-R12 , LR}
+   20 00000020         
+   21 00000020 EA80 0001       EOR              R0, R0, R1
+   22 00000024 EA80 0002       EOR              R0, R0, R2
+   23 00000028 EA80 0003       EOR              R0, R0, R3
+   24 0000002C EA80 0004       EOR              R0, R0, R4
+   25 00000030 EA80 0005       EOR              R0, R0, R5
+   26 00000034 EA80 0006       EOR              R0, R0, R6
+   27 00000038 EA80 0007       EOR              R0, R0, R7
+   28 0000003C EA80 0008       EOR              R0, R0, R8
+   29 00000040 EA80 0009       EOR              R0, R0, R9
+   30 00000044 EA80 000A       EOR              R0, R0, R10
+   31 00000048 EA80 000B       EOR              R0, R0, R11
+   32 0000004C EA80 000C       EOR              R0, R0, R12
+   33 00000050 EA80 000E       EOR              R0, R0, LR
+   34 00000054         
+   35 00000054 F3EF 8603       MRS              R6, xPSR
+   36 00000058 EA80 0006       EOR              R0, R0, R6
+   37 0000005C F3EF 8509       MRS              R5, PSP
+   38 00000060 F845 0C04       STMFD            R5, {R0}
+   39 00000064         
+   40 00000064 4770            BX               LR
+   41 00000066         
+   42 00000066         svc0xfe
+   43 00000066 2CFE            CMP              R4, #0xFE
+   44 00000068 D1FE            BNE              .
+   45 0000006A         
+   46 0000006A                 IMPORT           Opt_M_Coordinates
+   47 0000006A                 IMPORT           Matrix_Coordinates
+   48 0000006A                 IMPORT           ROWS
+   49 0000006A                 IMPORT           COLUMNS
+   50 0000006A         
+   51 0000006A F81F 0004       LDRB             R0, ROWS
+   52 0000006E F81F 1004       LDRB             R1, COLUMNS
+   53 00000072 FB01 F000       MUL              R0, R1, R0
+   54 00000076         
+   55 00000076 4907            LDR              R1, =Matrix_Coordinates
+   56 00000078 4A07            LDR              R2, =Opt_M_Coordinates
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   57 0000007A         
+   58 0000007A F04F 0300       MOV              R3, #0
+   59 0000007E         loop
+   60 0000007E F851 4B04       LDR              R4, [R1], #4
+   61 00000082 F802 4B01       STRB             R4, [R2], #1
+   62 00000086 F103 0301       ADD              R3, R3, #1
+   63 0000008A 4283            CMP              R3, R0
+   64 0000008C D1F7            BNE              loop
+   65 0000008E         
+   66 0000008E E8BD 5FFF       POP              {R0-R12 , LR}
+   67 00000092 4770            BX               LR
+   68 00000094         
+   69 00000094                 ENDP
+   70 00000094         
+   71 00000094                 END
+              00000000 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\svc_custom_handler.d -o.\svc_custom_handler.o -I.\RTE\_Target_1 
+-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Co
+re\Include" -I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700
+_DFP\2.7.1\Device\Include" --predefine="__EVAL SETA 1" --predefine="__UVISION_V
+ERSION SETA 536" --predefine="_RTE_ SETA 1" --predefine="LPC175x_6x SETA 1" --p
+redefine="_RTE_ SETA 1" --list=.\svc_custom_handler.lst svc_custom_handler.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+SVC_Handler 00000000
+
+Symbol: SVC_Handler
+   Definitions
+      At line 3 in file svc_custom_handler.s
+   Uses
+      At line 4 in file svc_custom_handler.s
+Comment: SVC_Handler used once
+loop 0000007E
+
+Symbol: loop
+   Definitions
+      At line 59 in file svc_custom_handler.s
+   Uses
+      At line 64 in file svc_custom_handler.s
+Comment: loop used once
+svc0xca 00000018
+
+Symbol: svc0xca
+   Definitions
+      At line 15 in file svc_custom_handler.s
+   Uses
+      None
+Comment: svc0xca unused
+svc0xfe 00000066
+
+Symbol: svc0xfe
+   Definitions
+      At line 42 in file svc_custom_handler.s
+   Uses
+      At line 17 in file svc_custom_handler.s
+Comment: svc0xfe used once
+svc_custom_handlers.text 00000000
+
+Symbol: svc_custom_handlers.text
+   Definitions
+      At line 1 in file svc_custom_handler.s
+   Uses
+      None
+Comment: svc_custom_handlers.text unused
+5 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+COLUMNS 00000000
+
+Symbol: COLUMNS
+   Definitions
+      At line 49 in file svc_custom_handler.s
+   Uses
+      At line 52 in file svc_custom_handler.s
+Comment: COLUMNS used once
+Matrix_Coordinates 00000000
+
+Symbol: Matrix_Coordinates
+   Definitions
+      At line 47 in file svc_custom_handler.s
+   Uses
+      At line 55 in file svc_custom_handler.s
+Comment: Matrix_Coordinates used once
+Opt_M_Coordinates 00000000
+
+Symbol: Opt_M_Coordinates
+   Definitions
+      At line 46 in file svc_custom_handler.s
+   Uses
+      At line 56 in file svc_custom_handler.s
+Comment: Opt_M_Coordinates used once
+ROWS 00000000
+
+Symbol: ROWS
+   Definitions
+      At line 48 in file svc_custom_handler.s
+   Uses
+      At line 51 in file svc_custom_handler.s
+Comment: ROWS used once
+4 symbols
+345 symbols in table

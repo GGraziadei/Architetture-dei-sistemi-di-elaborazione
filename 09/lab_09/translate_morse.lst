@@ -1,0 +1,372 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         
+    2 00000000         
+    3 00000000                 AREA             translate_morse_code, CODE, REA
+DONLY
+    4 00000000         
+    5 00000000         translate_morse
+                               FUNCTION
+    6 00000000         
+    7 00000000 E92D 4DF0       STMFD            SP!, {R4-R8, R10-R11 , LR } 
+                                                            ;ABI STD
+    8 00000004         
+    9 00000004         ;R0 -> char* vett_input, Morse code vector to convert.
+   10 00000004         ;R1 -> int vet_input_lenght, length of the vector to con
+                       vert.
+   11 00000004         ;R2 -> char* vett_output, ASCII output vector.
+   12 00000004         ;R3 -> int vet_output_lenght, length of the output vecto
+                       r.
+   13 00000004         
+   14 00000004         ;general offset => 8 * 4 = 32 byte ABI STD
+   15 00000004         
+   16 00000004         ;char change_symbol, the value representing the change o
+                       f symbol in the input vector.
+   17 00000004         ;LDR R4, [SP , #32 ]
+   18 00000004         ;char space, the value representing the space in the inp
+                       ut vector.
+   19 00000004         ;LDR R5, [SP , #4 + 32]
+   20 00000004         ; char sentence_end, the value representing the end of t
+                       he sentence in the input vector.
+   21 00000004         ;LDR R6, [SP , #8 + 32]
+   22 00000004         
+   23 00000004         ;per ottimizzazione registri multipli accessi allo Stack
+                       . Utilizzo unico registro temporaneao
+   24 00000004         
+   25 00000004 F04F 0700       MOV              R7, #0      ; number of bit
+   26 00000008 F04F 0600       MOV              R6, #0      ; number of charact
+                                                            ers
+   27 0000000C F04F 0AFF       MOV              R10, #0x000000FF ;maschera inpu
+                                                            t value 
+   28 00000010 F04F 0B00       MOV              R11, #0     ;numero elementi le
+                                                            tti
+   29 00000014         
+   30 00000014         loopInputVect
+   31 00000014 429E            CMP              R6, R3
+   32 00000016 DA54            BGE              fineTraduzione ; error the numb
+                                                            er of charater read
+                                                             is prefixed by EIN
+                                                            T1_IRQHandler
+   33 00000018         
+   34 00000018 F810 4B01       LDRB             R4, [R0] , #1
+   35 0000001C F107 0701       ADD              R7, R7, #1
+   36 00000020         
+   37 00000020         checkFineCarattere
+   38 00000020 9D08            LDR              R5, [SP, #32 ]
+   39 00000022 42AC            CMP              R4, R5
+   40 00000024 D112            BNE              CheckSpazio
+   41 00000026         
+   42 00000026         ;estensione della signature del singolo carattere al num
+                       ero di bit utilizzati __carattere__ || __bitUtilizzati__
+                       
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   43 00000026 F00A 0AFF       AND              R10, R10, #0x000000FF
+   44 0000002A EA4F 2A0A       LSL              R10, #8
+   45 0000002E EA4A 0A0B       ORR              R10, R10, R11
+   46 00000032 B40F            STMFD            SP!, { R0-R3 }
+   47 00000034 4650            MOV              R0, R10
+   48 00000036 F7FF FFFE       BL               searchCarattere
+   49 0000003A 4406            ADD              R6, R6, R0
+   50 0000003C BC0F            LDMFD            SP!, { R0-R3 }
+   51 0000003E F102 0201       ADD              R2, R2, #1
+   52 00000042 F04F 0AFF       MOV              R10, #0x000000FF ;maschera inpu
+                                                            t value 
+   53 00000046 F04F 0B00       MOV              R11, #0     ;numero elementi le
+                                                            tti
+   54 0000004A E7E3            B                loopInputVect ;nextCarattere
+   55 0000004C         
+   56 0000004C         CheckSpazio
+   57 0000004C 9D09            LDR              R5, [SP , #36 ]
+   58 0000004E 42AC            CMP              R4, R5
+   59 00000050 D118            BNE              checkFineTraduzione
+   60 00000052         
+   61 00000052         ;estensione della signature del singolo carattere al num
+                       ero di bit utilizzati __carattere__ || __bitUtilizzati__
+                       
+   62 00000052 F00A 0AFF       AND              R10, R10, #0x000000FF
+   63 00000056 EA4F 2A0A       LSL              R10, #8
+   64 0000005A EA4A 0A0B       ORR              R10, R10, R11
+   65 0000005E B40F            STMFD            SP!, { R0-R3 }
+   66 00000060 4650            MOV              R0, R10
+   67 00000062 F7FF FFFE       BL               searchCarattere
+   68 00000066 4406            ADD              R6, R6, R0
+   69 00000068 BC0F            LDMFD            SP!, { R0-R3 }
+   70 0000006A F102 0201       ADD              R2, R2, #1
+   71 0000006E F04F 0AFF       MOV              R10, #0x000000FF ;maschera inpu
+                                                            t value 
+   72 00000072 F04F 0B00       MOV              R11, #0     ;numero elementi le
+                                                            tti
+   73 00000076 F04F 0520       MOV              R5, #" "
+   74 0000007A F802 5B01       STRB             R5, [R2], #1
+   75 0000007E F106 0601       ADD              R6, R6, #1
+   76 00000082 E7C7            B                loopInputVect ;nextCarattere
+   77 00000084         
+   78 00000084         checkFineTraduzione
+   79 00000084 9D0A            LDR              R5, [SP , #40 ]
+   80 00000086 42AC            CMP              R4, R5
+   81 00000088 D112            BNE              nextBit
+   82 0000008A         
+   83 0000008A         ;estensione della signature del singolo carattere al num
+                       ero di bit utilizzati __carattere__ || __bitUtilizzati__
+                       
+   84 0000008A F00A 0AFF       AND              R10, R10, #0x000000FF
+   85 0000008E EA4F 2A0A       LSL              R10, #8
+   86 00000092 EA4A 0A0B       ORR              R10, R10, R11
+   87 00000096 B40F            STMFD            SP!, { R0-R3 }
+   88 00000098 4650            MOV              R0, R10
+   89 0000009A F7FF FFFE       BL               searchCarattere
+   90 0000009E 4406            ADD              R6, R6, R0
+   91 000000A0 BC0F            LDMFD            SP!, { R0-R3 }
+   92 000000A2 F102 0201       ADD              R2, R2, #1
+   93 000000A6 F04F 0AFF       MOV              R10, #0x000000FF ;maschera inpu
+
+
+
+ARM Macro Assembler    Page 3 
+
+
+                                                            t value 
+   94 000000AA F04F 0B00       MOV              R11, #0     ;numero elementi le
+                                                            tti
+   95 000000AE E008            B                fineTraduzione ;fineTraduzione
+   96 000000B0         
+   97 000000B0         nextBit
+   98 000000B0 428F            CMP              R7, R1
+   99 000000B2 DA06            BGE              fineTraduzione ;error the last 
+                                                            character of senten
+                                                            ce must be fineRiga
+                                                            
+  100 000000B4         
+  101 000000B4 F10B 0B01       ADD              R11, R11, #1
+  102 000000B8 EA4F 0A4A       LSL              R10, #1
+  103 000000BC         ;ORR R4, R4, #0xFFFFFFFE
+  104 000000BC EA4A 0A04       ORR              R10, R10, R4
+  105 000000C0 E7A8            B                loopInputVect
+  106 000000C2         
+  107 000000C2         
+  108 000000C2         fineTraduzione
+  109 000000C2 4630            MOV              R0, R6
+  110 000000C4 E8BD 4DF0       LDMFD            SP!, {R4-R8, R10-R11 , LR } 
+                                                            ;ABI STD
+  111 000000C8         
+  112 000000C8 4770            BX               LR
+  113 000000CA         
+  114 000000CA                 ENDFUNC
+  115 000000CA         
+  116 000000CA         
+  117 000000CA         searchCarattere
+                               FUNCTION
+  118 000000CA                 IMPORT           morse_map
+  119 000000CA         
+  120 000000CA E92D 4DF0       STMFD            SP!, {R4-R8, R10-R11 , LR } 
+                                                            ;ABI STD
+  121 000000CE         
+  122 000000CE         ;R0 signature completa del codice da tradurre
+  123 000000CE         
+  124 000000CE 4D0C            LDR              R5, =morse_map
+  125 000000D0 F04F 0800       MOV              R8, #0      ;indice carattere c
+                                                            orrispondente
+  126 000000D4         
+  127 000000D4         linearSearchSignature
+  128 000000D4         ;    LDRB R6, [R5] , #1 ;lunghezza
+  129 000000D4         ;    LDRB R7, [R5] , #1 ;carattere
+  130 000000D4         ;    CMP R6, R11
+  131 000000D4         ;    BNE goNext
+  132 000000D4         ;    CMP R7, R10
+  133 000000D4         ;    BNE goNext
+  134 000000D4         
+  135 000000D4 F1B8 0F1E       CMP              R8, #30
+  136 000000D8 D00E            BEQ              noMatch
+  137 000000DA         
+  138 000000DA F835 6B02       LDRH             R6, [R5] , #2
+  139 000000DE 42B0            CMP              R0, R6
+  140 000000E0 D002            BEQ              directMapAscii
+  141 000000E2 F108 0801       ADD              R8, R8, #1
+  142 000000E6 E7F5            B                linearSearchSignature
+  143 000000E8         
+
+
+
+ARM Macro Assembler    Page 4 
+
+
+  144 000000E8         directMapAscii
+  145 000000E8                 IMPORT           ascii_map
+  146 000000E8 4D06            LDR              R5, =ascii_map
+  147 000000EA F815 6008       LDRB             R6, [R5 , R8]
+  148 000000EE 7016            STRB             R6, [R2]    ;write on output ve
+                                                            ctor. Write Back op
+                                                            tion is demandeted 
+                                                            to callee.
+  149 000000F0 F04F 0001       MOV              R0, #1      ;return number of c
+                                                            haracters
+  150 000000F4 E8BD 8DF0       LDMFD            SP!, {R4-R8, R10-R11 , PC } 
+                                                            ;ABI STD
+  151 000000F8         
+  152 000000F8         noMatch
+  153 000000F8 F04F 0000       MOV              R0, #0      ;return number of c
+                                                            haracters
+  154 000000FC E8BD 8DF0       LDMFD            SP!, {R4-R8, R10-R11 , PC } 
+                                                            ;ABI STD
+  155 00000100         
+  156 00000100                 ENDFUNC
+  157 00000100         
+  158 00000100                 EXPORT           translate_morse
+  159 00000100                 END
+              00000000 
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\translate_morse.d -o.\translate_morse.o -I.\RTE\_Target_1 -I"C:\
+Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Inc
+lude" -I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2
+.7.1\Device\Include" --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION
+ SETA 536" --predefine="_RTE_ SETA 1" --predefine="LPC175x_6x SETA 1" --predefi
+ne="_RTE_ SETA 1" --list=.\translate_morse.lst translate_morse.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+CheckSpazio 0000004C
+
+Symbol: CheckSpazio
+   Definitions
+      At line 56 in file translate_morse.s
+   Uses
+      At line 40 in file translate_morse.s
+Comment: CheckSpazio used once
+checkFineCarattere 00000020
+
+Symbol: checkFineCarattere
+   Definitions
+      At line 37 in file translate_morse.s
+   Uses
+      None
+Comment: checkFineCarattere unused
+checkFineTraduzione 00000084
+
+Symbol: checkFineTraduzione
+   Definitions
+      At line 78 in file translate_morse.s
+   Uses
+      At line 59 in file translate_morse.s
+Comment: checkFineTraduzione used once
+directMapAscii 000000E8
+
+Symbol: directMapAscii
+   Definitions
+      At line 144 in file translate_morse.s
+   Uses
+      At line 140 in file translate_morse.s
+Comment: directMapAscii used once
+fineTraduzione 000000C2
+
+Symbol: fineTraduzione
+   Definitions
+      At line 108 in file translate_morse.s
+   Uses
+      At line 32 in file translate_morse.s
+      At line 95 in file translate_morse.s
+      At line 99 in file translate_morse.s
+
+linearSearchSignature 000000D4
+
+Symbol: linearSearchSignature
+   Definitions
+      At line 127 in file translate_morse.s
+   Uses
+      At line 142 in file translate_morse.s
+Comment: linearSearchSignature used once
+loopInputVect 00000014
+
+Symbol: loopInputVect
+   Definitions
+      At line 30 in file translate_morse.s
+   Uses
+      At line 54 in file translate_morse.s
+      At line 76 in file translate_morse.s
+      At line 105 in file translate_morse.s
+
+
+
+ARM Macro Assembler    Page 2 Alphabetic symbol ordering
+Relocatable symbols
+
+
+nextBit 000000B0
+
+Symbol: nextBit
+   Definitions
+      At line 97 in file translate_morse.s
+   Uses
+      At line 81 in file translate_morse.s
+Comment: nextBit used once
+noMatch 000000F8
+
+Symbol: noMatch
+   Definitions
+      At line 152 in file translate_morse.s
+   Uses
+      At line 136 in file translate_morse.s
+Comment: noMatch used once
+searchCarattere 000000CA
+
+Symbol: searchCarattere
+   Definitions
+      At line 117 in file translate_morse.s
+   Uses
+      At line 48 in file translate_morse.s
+      At line 67 in file translate_morse.s
+      At line 89 in file translate_morse.s
+
+translate_morse 00000000
+
+Symbol: translate_morse
+   Definitions
+      At line 5 in file translate_morse.s
+   Uses
+      At line 158 in file translate_morse.s
+Comment: translate_morse used once
+translate_morse_code 00000000
+
+Symbol: translate_morse_code
+   Definitions
+      At line 3 in file translate_morse.s
+   Uses
+      None
+Comment: translate_morse_code unused
+12 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+ascii_map 00000000
+
+Symbol: ascii_map
+   Definitions
+      At line 145 in file translate_morse.s
+   Uses
+      At line 146 in file translate_morse.s
+Comment: ascii_map used once
+morse_map 00000000
+
+Symbol: morse_map
+   Definitions
+      At line 118 in file translate_morse.s
+   Uses
+      At line 124 in file translate_morse.s
+Comment: morse_map used once
+2 symbols
+350 symbols in table

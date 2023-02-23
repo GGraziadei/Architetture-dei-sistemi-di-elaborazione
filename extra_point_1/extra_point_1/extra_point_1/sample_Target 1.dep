@@ -1,0 +1,167 @@
+Dependencies for Project 'sample', Target 'Target 1': (DO NOT MODIFY !)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCLANG5
+F (.\startup_LPC17xx.s)(0x63B34987)(--cpu Cortex-M3 -g --apcs=interwork -I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"--pd "__UVISION_VERSION SETA 537" --pd "_RTE_ SETA 1" --pd "LPC175x_6x SETA 1" --pd "_RTE_ SETA 1"--list .\startup_lpc17xx.lst --xref -o .\startup_lpc17xx.o --depend .\startup_lpc17xx.d)
+F (.\sample.c)(0x63B87D96)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --enum_is_int-I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"-D__UVISION_VERSION="537" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\sample.o --omf_browse .\sample.crf --depend .\sample.d)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\LPC17xx.h)(0x5E1DC4B4)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626FAD4E)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdint.h)(0x5E8E9F32)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\system_LPC17xx.h)(0x58493F92)
+I (tamagotchi.h)(0x63B87AA7)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdlib.h)(0x5E8E9F32)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\string.h)(0x5E8E9F32)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdio.h)(0x5E8E9F32)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\math.h)(0x5E8E9F32)
+I (timer/timer.h)(0x63A50B9E)
+I (GLCD/GLCD.h)(0x63A9EE79)
+I (user_events.h)(0x63A70E16)
+I (RIT/RIT.h)(0x5C18CD48)
+I (TouchPanel/TouchPanel.h)(0x63A4F58E)
+I (tamagotchi_animations.h)(0x63B8410D)
+F (.\core_cm3.c)(0x63A4F58C)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --enum_is_int-I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"-D__UVISION_VERSION="537" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\core_cm3.o --omf_browse .\core_cm3.crf --depend .\core_cm3.d)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdint.h)(0x5E8E9F32)
+F (.\system_LPC17xx.c)(0x63ADDEDA)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --enum_is_int-I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"-D__UVISION_VERSION="537" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\system_lpc17xx.o --omf_browse .\system_lpc17xx.crf --depend .\system_lpc17xx.d)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdint.h)(0x5E8E9F32)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\LPC17xx.h)(0x5E1DC4B4)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\system_LPC17xx.h)(0x58493F92)
+F (.\timer\IRQ_timer.c)(0x63B03B2C)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --enum_is_int-I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"-D__UVISION_VERSION="537" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\irq_timer.o --omf_browse .\irq_timer.crf --depend .\irq_timer.d)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdio.h)(0x5E8E9F32)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\string.h)(0x5E8E9F32)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\lpc17xx.h)(0x5E1DC4B4)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626FAD4E)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdint.h)(0x5E8E9F32)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\system_LPC17xx.h)(0x58493F92)
+I (timer\../tamagotchi.h)(0x63B87AA7)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdlib.h)(0x5E8E9F32)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\math.h)(0x5E8E9F32)
+I (timer\../timer/timer.h)(0x63A50B9E)
+I (timer\../GLCD/GLCD.h)(0x63A9EE79)
+I (timer\../user_events.h)(0x63A70E16)
+I (timer\../RIT/RIT.h)(0x5C18CD48)
+I (timer\../TouchPanel/TouchPanel.h)(0x63A4F58E)
+I (timer\../tamagotchi_animations.h)(0x63B8410D)
+F (.\timer\lib_timer.c)(0x63B4125D)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --enum_is_int-I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"-D__UVISION_VERSION="537" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\lib_timer.o --omf_browse .\lib_timer.crf --depend .\lib_timer.d)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\lpc17xx.h)(0x5E1DC4B4)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626FAD4E)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdint.h)(0x5E8E9F32)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\system_LPC17xx.h)(0x58493F92)
+I (timer\timer.h)(0x63A50B9E)
+F (.\timer\timer.h)(0x63A50B9E)()
+F (.\GLCD\AsciiLib.c)(0x63A9E10B)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --enum_is_int-I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"-D__UVISION_VERSION="537" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\asciilib.o --omf_browse .\asciilib.crf --depend .\asciilib.d)
+I (GLCD\AsciiLib.h)(0x63A9E10B)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\string.h)(0x5E8E9F32)
+F (.\GLCD\AsciiLib.h)(0x63A9E10B)()
+F (.\GLCD\GLCD.c)(0x63A9F3D7)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --enum_is_int-I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"-D__UVISION_VERSION="537" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\glcd.o --omf_browse .\glcd.crf --depend .\glcd.d)
+I (GLCD\GLCD.h)(0x63A9EE79)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\LPC17xx.h)(0x5E1DC4B4)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626FAD4E)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdint.h)(0x5E8E9F32)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\system_LPC17xx.h)(0x58493F92)
+I (GLCD\AsciiLib.h)(0x63A9E10B)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\string.h)(0x5E8E9F32)
+F (.\GLCD\GLCD.h)(0x63A9EE79)()
+F (.\GLCD\HzLib.c)(0x63A9E10B)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --enum_is_int-I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"-D__UVISION_VERSION="537" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\hzlib.o --omf_browse .\hzlib.crf --depend .\hzlib.d)
+I (GLCD\HzLib.h)(0x63A9E10B)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\string.h)(0x5E8E9F32)
+F (.\GLCD\HzLib.h)(0x63A9E10B)()
+F (.\TouchPanel\TouchPanel.c)(0x63A4F58E)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --enum_is_int-I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"-D__UVISION_VERSION="537" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\touchpanel.o --omf_browse .\touchpanel.crf --depend .\touchpanel.d)
+I (TouchPanel\../GLCD/GLCD.h)(0x63A9EE79)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\LPC17xx.h)(0x5E1DC4B4)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626FAD4E)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdint.h)(0x5E8E9F32)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\system_LPC17xx.h)(0x58493F92)
+I (TouchPanel\../TouchPanel/TouchPanel.h)(0x63A4F58E)
+F (.\TouchPanel\TouchPanel.h)(0x63A4F58E)()
+F (.\tamagotchi.h)(0x63B87AA7)()
+F (.\tamagotchi.c)(0x63BAE8A1)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --enum_is_int-I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"-D__UVISION_VERSION="537" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\tamagotchi.o --omf_browse .\tamagotchi.crf --depend .\tamagotchi.d)
+I (tamagotchi.h)(0x63B87AA7)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdlib.h)(0x5E8E9F32)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\string.h)(0x5E8E9F32)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdio.h)(0x5E8E9F32)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\math.h)(0x5E8E9F32)
+I (timer/timer.h)(0x63A50B9E)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdint.h)(0x5E8E9F32)
+I (GLCD/GLCD.h)(0x63A9EE79)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\LPC17xx.h)(0x5E1DC4B4)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\system_LPC17xx.h)(0x58493F92)
+I (user_events.h)(0x63A70E16)
+I (RIT/RIT.h)(0x5C18CD48)
+I (TouchPanel/TouchPanel.h)(0x63A4F58E)
+I (tamagotchi_animations.h)(0x63B8410D)
+F (.\user_events.c)(0x63BADEA7)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --enum_is_int-I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"-D__UVISION_VERSION="537" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\user_events.o --omf_browse .\user_events.crf --depend .\user_events.d)
+I (user_events.h)(0x63A70E16)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdio.h)(0x5E8E9F32)
+I (timer/timer.h)(0x63A50B9E)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdint.h)(0x5E8E9F32)
+I (RIT/RIT.h)(0x5C18CD48)
+I (TouchPanel/TouchPanel.h)(0x63A4F58E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\LPC17xx.h)(0x5E1DC4B4)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\system_LPC17xx.h)(0x58493F92)
+F (.\user_events.h)(0x63A70E16)()
+F (.\tamagotchi_animations.h)(0x63B8410D)()
+F (.\tamagotchi_animations.c)(0x63B86BAA)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --enum_is_int-I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"-D__UVISION_VERSION="537" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\tamagotchi_animations.o --omf_browse .\tamagotchi_animations.crf --depend .\tamagotchi_animations.d)
+I (tamagotchi_animations.h)(0x63B8410D)
+I (GLCD/GLCD.h)(0x63A9EE79)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\LPC17xx.h)(0x5E1DC4B4)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626FAD4E)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdint.h)(0x5E8E9F32)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\system_LPC17xx.h)(0x58493F92)
+F (.\RIT\IRQ_RIT.c)(0x63A5DAB8)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --enum_is_int-I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"-D__UVISION_VERSION="537" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\irq_rit.o --omf_browse .\irq_rit.crf --depend .\irq_rit.d)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\lpc17xx.h)(0x5E1DC4B4)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626FAD4E)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdint.h)(0x5E8E9F32)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\system_LPC17xx.h)(0x58493F92)
+I (RIT\RIT.h)(0x5C18CD48)
+F (.\RIT\lib_RIT.c)(0x63ADD0A4)(--c99 -c --cpu Cortex-M3 -g -O0 --apcs=interwork --enum_is_int-I.\RTE\_Target_1-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include"-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include"-D__UVISION_VERSION="537" -D_RTE_ -DLPC175x_6x -D_RTE_-o .\lib_rit.o --omf_browse .\lib_rit.crf --depend .\lib_rit.d)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\lpc17xx.h)(0x5E1DC4B4)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\core_cm3.h)(0x626FAD4E)
+I (C:\Keil_v5\ARM\ARMCLANG5\include\stdint.h)(0x5E8E9F32)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_version.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_compiler.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\cmsis_armcc.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include\mpu_armv7.h)(0x626FAD4E)
+I (C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Device\Include\system_LPC17xx.h)(0x58493F92)
+I (RIT\RIT.h)(0x5C18CD48)
+F (.\RIT\RIT.h)(0x5C18CD48)()

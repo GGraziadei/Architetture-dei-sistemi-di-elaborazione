@@ -1,0 +1,86 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         
+    2 00000000                 AREA             |my_division.text|, CODE, READO
+NLY
+    3 00000000         
+    4 00000000         ; my_division 
+    5 00000000         ; parameters R0 = a , R1 = b
+    6 00000000         ; return value in R0
+    7 00000000         
+    8 00000000         my_division
+                               FUNCTION
+    9 00000000         
+   10 00000000 E92D 4C70       PUSH             {R4-R6,R10-R11,LR}
+   11 00000004 B40F            PUSH             {R0-R3}
+   12 00000006         
+   13 00000006                 IMPORT           __aeabi_fdiv
+   14 00000006 4C05            LDR              R4, =__aeabi_fdiv
+   15 00000008         
+   16 00000008 6805            LDR              R5, [R0]
+   17 0000000A 680E            LDR              R6, [R1]
+   18 0000000C         
+   19 0000000C 4628            MOV              R0, R5
+   20 0000000E 4631            MOV              R1, R6
+   21 00000010 4720            BX               R4
+   22 00000012 4604            MOV              R4, R0
+   23 00000014         
+   24 00000014 BC0F            POP              {R0-R3}
+   25 00000016 4620            MOV              R0, R4
+   26 00000018 E8BD 8C70       POP              {R4-R6,R10-R11,PC}
+   27 0000001C                 ENDFUNC
+   28 0000001C         
+   29 0000001C                 EXPORT           my_division
+   30 0000001C         
+   31 0000001C                 END
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\my_division.d -o.\my_division.o -I.\RTE\_Target_1 -I"C:\Users\Gi
+anluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include" -I
+"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\Dev
+ice\Include" --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 53
+6" --predefine="_RTE_ SETA 1" --predefine="LPC175x_6x SETA 1" --predefine="_RTE
+_ SETA 1" --list=.\my_division.lst my_division.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+my_division 00000000
+
+Symbol: my_division
+   Definitions
+      At line 8 in file my_division.s
+   Uses
+      At line 29 in file my_division.s
+Comment: my_division used once
+my_division.text 00000000
+
+Symbol: my_division.text
+   Definitions
+      At line 2 in file my_division.s
+   Uses
+      None
+Comment: my_division.text unused
+2 symbols
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+External symbols
+
+__aeabi_fdiv 00000000
+
+Symbol: __aeabi_fdiv
+   Definitions
+      At line 13 in file my_division.s
+   Uses
+      At line 14 in file my_division.s
+Comment: __aeabi_fdiv used once
+1 symbol
+339 symbols in table

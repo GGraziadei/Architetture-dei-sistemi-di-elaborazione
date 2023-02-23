@@ -1,0 +1,42 @@
+.data
+	ifmap: 	.byte 	1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5				
+	kernel: .byte 	1,1,1,1,1,1,1,1,1		
+	ofmap:	.space  9	
+.text
+main: 
+	daddu 	R1, R0, R0 
+	daddu 	R4, R0, R0
+	daddu 	R12, R0, R0
+	daddui	R3,	R0,	3
+	daddui 	R12, R0, ofmap
+forRighe: #R1 
+	daddu 	R2, R0, R0
+forColonne: #R2 
+	#R4 offset su primo elemento della ifmap dal quale iniziare a leggere
+	daddu 	R7 , R4, R0 #copia del valore offset di partenza su ifmap
+	daddu 	R8 , R0, R0 # valore offset su kernel
+	daddu 	R5 , R0, R0 #idice forRighe1
+	daddu   R10, R0, R0 #valore i-esimo di ofmap
+forRighe1: #R5
+	daddu 	R6, R0, R0
+forColonne1: #R6
+	lb 		R9 , ifmap(R7) #sign exstension
+	lb      R11, kernel(R8)
+	dmul    R9, R9, R11
+	dadd    R10 , R10, R9
+	daddui 	R7, R7, 1
+	daddui 	R8, R8, 1
+	daddui	R6, R6, 1					
+	bne 	R6, R3, forColonne1
+	daddui	R5, R5, 1	
+	daddui 	R7, R7, 2				
+	bne 	R5, R3, forRighe1
+	sb      R10 , 0(R12)
+	daddui  R12, R12, 1 #offset su ofmap
+	daddui	R2, R2, 1
+	daddui  R4, R4, 1
+	bne 	R2, R3, forColonne
+	daddui	R1, R1, 1
+	daddui  R4, R4, 2
+	bne 	R1, R3, forRighe
+	HALT

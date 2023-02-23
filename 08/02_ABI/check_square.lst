@@ -1,0 +1,64 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000         
+    2 00000000                 AREA             |check_square.text|, CODE, READ
+ONLY
+    3 00000000         
+    4 00000000         ; check_square 
+    5 00000000         ; parameters R0 = x , R1 = y , R2 = RADIUS
+    6 00000000         ; return value in R0, 1 if inside 0 if outside
+    7 00000000         
+    8 00000000         check_square
+                               FUNCTION
+    9 00000000 E92D 4C70       PUSH             {R4-R6,R10-R11,LR}
+   10 00000004 FB00 F400       MUL              R4, R0, R0
+   11 00000008 FB01 F501       MUL              R5, R1, R1
+   12 0000000C FB02 F602       MUL              R6, R2, R2
+   13 00000010 442C            ADD              R4, R4, R5
+   14 00000012         
+   15 00000012 42B4            CMP              R4, R6
+   16 00000014         
+   17 00000014 BFD4 2001       MOVLE            R0, #1
+   18 00000018 2000            MOVGT            R0, #0
+   19 0000001A         
+   20 0000001A E8BD 8C70       POP              {R4-R6,R10-R11,PC}
+   21 0000001E                 ENDFUNC
+   22 0000001E         
+   23 0000001E                 EXPORT           check_square
+   24 0000001E         
+   25 0000001E                 END
+Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M3 --apcs=interw
+ork --depend=.\check_square.d -o.\check_square.o -I.\RTE\_Target_1 -I"C:\Users\
+Gianluca Graziadei\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include" 
+-I"C:\Users\Gianluca Graziadei\AppData\Local\Arm\Packs\Keil\LPC1700_DFP\2.7.1\D
+evice\Include" --predefine="__EVAL SETA 1" --predefine="__UVISION_VERSION SETA 
+536" --predefine="_RTE_ SETA 1" --predefine="LPC175x_6x SETA 1" --predefine="_R
+TE_ SETA 1" --list=.\check_square.lst check_square.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+check_square 00000000
+
+Symbol: check_square
+   Definitions
+      At line 8 in file check_square.s
+   Uses
+      At line 23 in file check_square.s
+Comment: check_square used once
+check_square.text 00000000
+
+Symbol: check_square.text
+   Definitions
+      At line 2 in file check_square.s
+   Uses
+      None
+Comment: check_square.text unused
+2 symbols
+336 symbols in table
